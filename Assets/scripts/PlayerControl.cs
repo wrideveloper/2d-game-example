@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour
 
   void Jump()
   {
-    myRigidbody.AddForce(new Vector2(0, 15), ForceMode2D.Impulse);
+    myRigidbody.AddForce(new Vector2(0, 20), ForceMode2D.Impulse);
   }
 
   void OnTriggerEnter2D(Collider2D other)
