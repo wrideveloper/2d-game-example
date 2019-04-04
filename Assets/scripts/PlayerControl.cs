@@ -1,20 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
-  public Text scoreText;
-
   Rigidbody2D myRigidbody;
   Animator myAnimator;
   float speed = 10;
-
   public bool isGround = false;
-
-  int score = 0;
-
   Vector3[] meatPosition = {
     new Vector3(15.28F, 8.4F, 0),
     new Vector3(-11.5F, 8.7F, 0),
@@ -58,9 +51,8 @@ public class PlayerControl : MonoBehaviour
     {
       int index = Random.Range(0, 4);
       other.transform.position = meatPosition[index];
-      score++;
 
-      scoreText.text = score.ToString();
+      GameControl.AddScore();
     }
   }
 
