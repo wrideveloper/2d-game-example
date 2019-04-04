@@ -8,9 +8,10 @@ public class PlayerControl : MonoBehaviour
   public Text scoreText;
 
   Rigidbody2D myRigidbody;
+  Animator myAnimator;
   float speed = 10;
 
-  bool isGround = false;
+  public bool isGround = false;
 
   int score = 0;
 
@@ -26,6 +27,7 @@ public class PlayerControl : MonoBehaviour
   void Start()
   {
     myRigidbody = GetComponent<Rigidbody2D>();
+    myAnimator = GetComponent<Animator>();
   }
 
   // Update is called once per frame
@@ -50,6 +52,7 @@ public class PlayerControl : MonoBehaviour
     if (other.CompareTag("Ground"))
     {
       isGround = true;
+      myAnimator.SetBool("jump", false);
     }
     else if (other.CompareTag("Meat"))
     {
@@ -66,6 +69,7 @@ public class PlayerControl : MonoBehaviour
     if (other.CompareTag("Ground"))
     {
       isGround = false;
+      myAnimator.SetBool("jump", true);
     }
   }
 }
