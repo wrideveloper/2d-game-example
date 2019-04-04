@@ -46,6 +46,8 @@ public class PlayerControl : MonoBehaviour
     {
       isGround = true;
       myAnimator.SetBool("jump", false);
+
+      transform.SetParent(other.gameObject.transform);
     }
     else if (other.CompareTag("Meat"))
     {
@@ -62,6 +64,8 @@ public class PlayerControl : MonoBehaviour
     {
       isGround = false;
       myAnimator.SetBool("jump", true);
+
+      transform.SetParent(null);
     }
   }
 }
